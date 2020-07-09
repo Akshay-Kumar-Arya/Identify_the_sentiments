@@ -27,7 +27,28 @@ the task is to identify if the tweets have a negative sentiment towards such com
 contains 7920 tweets. The dataset is provided with each line storing a tweet id, its label and the tweet.
 
 [`test.csv`](https://datahack.analyticsvidhya.com/contest/linguipedia-codefest-natural-language-processing-1/download/test-file) - The test data file 
-contains only tweet ids and the tweet text with each tweet in a new line.
+contains 1953 tweets. The test data file contains only tweet ids and the tweet text with each tweet in a new line.
 
 Most profane and vulgar terms in the tweets have been replaced with “$&@*#”. 
 However, please note that the dataset still might contain text that may be considered profane, vulgar, or offensive.
+
+
+## Implementation Approach
+
+### Text Cleaning and Preprocessing
+Apply the below text preposessing on the training and testing tweets sets:
+
+* URLs removal: We have used Regular Expressions (or RegEx) to remove the URLs.
+* Remove the Twitter user handle with @ mentions.
+* Punctuation marks removal: remove any punction marks from the text.
+* Numbers removal: replace any digits in the tweets with space.
+* Whitespaces removal
+* Convert the text to lowercase.
+* Convert text into embedding using pretrained Model from Tensorflow Hub.
+
+### Tweets to BERT vectors
+We imported and used the pretrained google BERT model, where we extracted BERT vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an BERT vector of length 768 in terms of the tweet's words/tokens.
+
+### Classification Model building and evaluation
+Use preprocessed dataset to for training classification models. Use `f1 score` metric for evaluation as it is the official evaluation metric in contest. Models trained and their evaluation score is provided:
+* Logistic regression model using BERT vectors, evaluation score is `0.8715878799554232`
