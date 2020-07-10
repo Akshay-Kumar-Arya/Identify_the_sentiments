@@ -53,5 +53,6 @@ We imported and used the pretrained google BERT model, where we extracted BERT v
 Use preprocessed dataset to for training classification models. Use `f1 score` metric for evaluation as it is the official evaluation metric in contest. Models trained and their evaluation score is provided:
 * Logistic regression model using BERT vectors, evaluation score is `0.8715878799554232`
 * Logistic regression model using nnlm vectors, evaluation score is `0.85817439707144`
+* Logistic regression model using nnlm and BERT vectors, evaluation score is `0.877712596054773`
 * MLP model using BERT vectors, evaluation score is `0.8792921986900165`
 * GRU sequence model using BERT vectors, evaluation score is `0.8989105276853336`
