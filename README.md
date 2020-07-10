@@ -47,7 +47,10 @@ Apply the below text preposessing on the training and testing tweets sets:
 * Convert text into embedding using pretrained Model from Tensorflow Hub.
 
 ### Tweets to BERT vectors
-We imported and used the pretrained google BERT model, where we extracted BERT vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an BERT vector of length 768 in terms of the tweet's words/tokens.
+We import and use the pretrained google BERT model, where we extract BERT vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an BERT vector of length 768 in terms of the tweet's words/tokens.
+
+### Tweets to nnlm vectors
+We import and used the pretrained google nnlm model, where we extract nnlm vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an nnlm vector of length 128 in terms of the tweet's words/tokens.
 
 ### Classification Model building and evaluation
 Use preprocessed dataset to for training classification models. Use `f1 score` metric for evaluation as it is the official evaluation metric in contest. Models trained and their evaluation score is provided:
