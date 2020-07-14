@@ -58,4 +58,6 @@ Use preprocessed dataset to for training classification models. Use `f1 score` m
 * Logistic regression model using nnlm vectors, evaluation score is `0.85817439707144`
 * Logistic regression model using nnlm and BERT vectors, evaluation score is `0.877712596054773`
 * MLP model using BERT vectors, evaluation score is `0.8792921986900165`
+* MLP model using BERT and nnlm vectors, evaluation score is `0.886689220510626`
+* SVM model using BERT and nnlm vectors, evaluation score is `0.8654970760233918`
 * GRU sequence model using BERT vectors, evaluation score is `0.8989105276853336`
