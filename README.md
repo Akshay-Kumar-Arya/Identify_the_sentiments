@@ -52,6 +52,9 @@ We import and use the pretrained google BERT model, where we extract BERT vector
 ### Tweets to nnlm vectors
 We import and used the pretrained google nnlm model, where we extract nnlm vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an nnlm vector of length 128 in terms of the tweet's words/tokens.
 
+### Tweets to finetunned BERT vectors
+We import the pretrained google BERT model, then finetune it with a classification model using Bidirectional GRU layer. Save the finetuned bert model.
+
 ### Classification Model building and evaluation
 Use preprocessed dataset to for training classification models. Use `f1 score` metric for evaluation as it is the official evaluation metric in contest. Models trained and their evaluation score is provided:
 * Logistic regression model using BERT vectors, evaluation score is `0.8715878799554232`
@@ -61,3 +64,7 @@ Use preprocessed dataset to for training classification models. Use `f1 score` m
 * MLP model using BERT and nnlm vectors, evaluation score is `0.886689220510626`
 * SVM model using BERT and nnlm vectors, evaluation score is `0.8654970760233918`
 * GRU sequence model using BERT vectors, evaluation score is `0.8989105276853336`
+* Sequence model using finetunned BERT vectors, evaluation score is `0.9175058403`
+
+### Results
+* Get 8th rank in the contest with a evaluation score of `0.9175058403`.
