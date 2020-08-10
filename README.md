@@ -54,6 +54,11 @@ We import and used the pretrained google nnlm model, where we extract nnlm vecto
 
 ### Tweets to finetunned BERT vectors
 We import the pretrained google BERT model, then finetune it with a classification model using Bidirectional GRU layer. Save the finetuned bert model.
+* #### preprocessing needed for fine tune
+   * URLs removal
+   * Remove Twitter user handles
+   * remove hashtags
+   * remove white spaces
 
 ### Classification Model building and evaluation
 Use preprocessed dataset to for training classification models. Use `f1 score` metric for evaluation as it is the official evaluation metric in contest. Models trained and their evaluation score is provided:
