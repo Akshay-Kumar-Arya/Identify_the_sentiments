@@ -35,6 +35,8 @@ However, please note that the dataset still might contain text that may be consi
 
 ## Implementation Approach
 
+All the weights saved during the [final project submission](https://github.com/Akshay-Kumar-Arya/Identify_the_sentiments/blob/master/Complete_project_with_finetune_BERT_layer.ipynb) is in this [LINK](https://drive.google.com/drive/folders/1d0gkw_qDQFOWFjE1_PG4-CRcUynMFAjc?usp=sharing).
+
 ### Text Cleaning and Preprocessing
 We could apply different type of preprocessing on the dataset.
 Steps that could be involved in preprocessing dataset:
@@ -51,8 +53,6 @@ Steps that could be involved in preprocessing dataset:
 ### Visualization of cleaned tweets using wordcloud
 * Most frequently appearing word in positive tweets and Negative tweets.
 * Most common frequently appearing words in positive and Negative tweets.
-
-
 
 
 ### Convert cleaned tweets into Word embeddings
@@ -96,7 +96,7 @@ Use preprocessed dataset to for training classification models. Use `f1 score` m
 * Sequence model using finetunned BERT vectors, evaluation score is `0.9175058403`
 
 ### Results
-* Get 8th rank in the contest with a evaluation score of `0.9175058403`.
+* Get 8th rank in the contest with a evaluation score of `0.9175058403` among 6k participants.
 
 ### further work
 * Add ensembling techniques to combine the models.
