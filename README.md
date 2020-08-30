@@ -36,15 +36,24 @@ However, please note that the dataset still might contain text that may be consi
 ## Implementation Approach
 
 ### Text Cleaning and Preprocessing
-Apply the below text preposessing on the training and testing tweets sets:
-
-* URLs removal: We have used Regular Expressions (or RegEx) to remove the URLs.
-* Remove the Twitter user handle with @ mentions.
+We could apply different type of preprocessing on the dataset.
+Steps that could be involved in preprocessing dataset:
+* URLs and Twitter user handles(@ mentions) removal.
 * Punctuation marks removal: remove any punction marks from the text.
 * Numbers removal: replace any digits in the tweets with space.
 * Whitespaces removal
 * Convert the text to lowercase.
-* Convert text into embedding using pretrained Model from Tensorflow Hub.
+* Remove common hashtags that doesn't give any information about the positivity or negativity of tweets.
+* Use contraction corrector to expand the contractions.
+* Convert accented text into their litral meaning or at least convert them in simple text.
+* Convert emojies and emoticons to their expression word in the dictionary.
+
+### Visualization of cleaned tweets using wordcloud
+* Most frequently appearing word in positive tweets and Negative tweets.
+* Most common frequently appearing words in positive and Negative tweets.
+
+
+### Convert cleaned tweets into Word embeddings
 
 ### Tweets to BERT vectors
 We import and use the pretrained google BERT model, where we extract BERT vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an BERT vector of length 768 in terms of the tweet's words/tokens.
