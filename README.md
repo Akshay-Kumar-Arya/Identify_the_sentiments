@@ -53,21 +53,36 @@ Steps that could be involved in preprocessing dataset:
 * Most common frequently appearing words in positive and Negative tweets.
 
 
+
+
 ### Convert cleaned tweets into Word embeddings
+We can use already trained embeddings models to directly output the word embeddings or we can also finetune the trained embeddings models on our dataset to get more accurate results. In this project we will use these:
 
-### Tweets to BERT vectors
-We import and use the pretrained google BERT model, where we extract BERT vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an BERT vector of length 768 in terms of the tweet's words/tokens.
+#### Build input pipeline for BERT layer
+Convert the cleaned tweets to input form of the bert layer. This includes:
+* Tokenize with BERT tokenizer
+* Construct input word ids from tokenized tweets
+* Construct input mask from tokenized tweets
+* Construct input type ids from tokenized tweets
 
-### Tweets to nnlm vectors
+#### Tweets to BERT vectors
+We import and use the pretrained google BERT model as keras layer, where we extract BERT vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an BERT vector of length 768 in terms of the tweet's words/tokens.
+
+#### Tweets to BERT vectors and finetune it on our dataset
+We import the pretrained google BERT model as a keras layer, then finetune it with a classification model. Save the finetuned bert layer weights to further use it for classification.
+
+We used many combinations of preprocessing for cleaning tweets before finetune the bert layer. The best combination of preprocessing steps for BERT layer are:
+* URLs removal
+* Remove Twitter user handles
+* remove common and unusable hashtags
+* Contraction corrector
+* remove white spaces
+
+Adding any further preprocessing steps results in loss of information or context of the text. BERT model take care of context of every word.
+
+#### Tweets to nnlm vectors
 We import and used the pretrained google nnlm model, where we extract nnlm vectors for the cleaned tweets in the train and test datasets. Each tweet is represented by an nnlm vector of length 128 in terms of the tweet's words/tokens.
 
-### Tweets to finetunned BERT vectors
-We import the pretrained google BERT model, then finetune it with a classification model using Bidirectional GRU layer. Save the finetuned bert model.
-* #### preprocessing needed for fine tune
-   * URLs removal
-   * Remove Twitter user handles
-   * remove hashtags
-   * remove white spaces
 
 ### Classification Model building and evaluation
 Use preprocessed dataset to for training classification models. Use `f1 score` metric for evaluation as it is the official evaluation metric in contest. Models trained and their evaluation score is provided:
@@ -82,3 +97,6 @@ Use preprocessed dataset to for training classification models. Use `f1 score` m
 
 ### Results
 * Get 8th rank in the contest with a evaluation score of `0.9175058403`.
+
+### further work
+* Add ensembling techniques to combine the models.
